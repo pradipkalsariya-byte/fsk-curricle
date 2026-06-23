@@ -1,0 +1,29 @@
+/* FSK Curricle — runtime configuration.
+ *
+ * The ONLY file you edit when you deploy:
+ *   set `endpoint` to your Apps Script Web App "/exec" URL.
+ *
+ * Leave endpoint = "" to serve the bundled snapshots in /fixtures.
+ * That is how the pages render locally (and as an offline fallback before
+ * the endpoint is wired up).
+ */
+window.FSK_CONFIG = {
+  // Apps Script Web App /exec URL (currently pointed at the TEST COPIES).
+  endpoint: "https://script.google.com/macros/s/AKfycbzTEtZcwnaHlE6e9NO-9QVSrb9RavX1YaGvwRbPhSc4DqTWyMRb--gbcvOw03r026Q1VA/exec",
+
+  // Within this many minutes of a successful load, reuse the cached copy
+  // instead of hitting the network again.
+  freshMinutes: 2,
+
+  // Bump this (v1 -> v2 ...) if you ever change the data shape, to throw
+  // away every visitor's old cached copy.
+  cachePrefix: "fsk:v1:",
+
+  // --- Bus app sign-in gate (currently OFF) ---
+  // Flip to true (and set googleClientId) to require Google sign-in before the
+  // Bus Stop Finder loads. OFF = static, public bus search.
+  gateBuses: false,
+  // OAuth Client ID from Google Cloud (…apps.googleusercontent.com). Must match
+  // CLIENT_ID in apps-script/Code.gs. Leave "" until you've created it.
+  googleClientId: "",
+};
